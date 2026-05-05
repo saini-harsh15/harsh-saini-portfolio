@@ -4,6 +4,7 @@ import { Moon, Sun, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Internship from "@/components/Internship";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
@@ -30,6 +31,7 @@ export default function Home() {
 
   const navItems = [
     { id: "about", label: "About" },
+    { id: "internship", label: "Internship" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
@@ -121,6 +123,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Internship />
         <Skills />
         <Projects />
         <Contact />
