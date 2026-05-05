@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: process.env.MY_EMAIL,
-      reply_to: email, // Note: Resend expects snake_case `reply_to`
+      replyTo: email,
       subject: `Portfolio Contact: ${subject}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>
