@@ -19,10 +19,10 @@ const AboutSection = () => {
             <h3 className="text-2xl font-semibold">Hello! I&apos;m Harsh Saini</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
 
-              I&apos;m an aspiring full-stack web developer with a strong focus on backend development, driven by building reliable and scalable systems. My journey began through hands-on projects and academic work, where I developed practical experience in Java, Spring Boot, REST APIs, and MySQL, along with creating clean and responsive frontend interfaces using HTML, CSS, and JavaScript.
+              I&apos;m a full-stack web developer with a strong focus on backend development, passionate about building systems that are reliable, scalable, and built with purpose. Through hands-on projects and academic work, I&apos;ve developed solid experience in Java, Spring Boot, and REST APIs, with a good grip on MySQL for data modeling and persistence — complemented by clean, responsive frontend work using HTML, CSS, and JavaScript.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              In addition to backend development, I focus on writing efficient, maintainable code and ensuring application reliability through structured debugging, API testing, and performance optimization. I have gained hands-on experience with tools like Postman, Git, and Docker, and I am continuously working on improving my understanding of system design, microservices architecture, and real-world backend challenges.
+              Beyond writing code, I care about how it holds up — through structured debugging, API testing with Postman, and performance optimization that goes beyond making things work to making things work well. I&apos;m comfortable with Git and Docker in my workflow, and I&apos;m steadily growing my understanding of system design and microservices architecture, driven by a genuine interest in solving real-world backend challenges.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mt-8 max-w-2xl mx-auto">
