@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Github } from "lucide-react"
+import { Github, ExternalLink } from "lucide-react"
 import Image from "next/image"
 
 const ProjectsSection = () => {
@@ -18,6 +18,7 @@ const ProjectsSection = () => {
         "MySQL",
         "AI Matching Logic"
       ],
+      liveDemoUrl: "https://startupeco-production.up.railway.app/",
       githubUrl: "https://github.com/saini-harsh15/Startup",
     },
     {
@@ -97,12 +98,22 @@ const ProjectsSection = () => {
 
                     {/* Button ALWAYS at bottom */}
                     <div className="mt-auto">
-                      <a href={project.githubUrl} target="_blank" rel="noreferrer">
-                        <Button variant="outline" size="sm">
-                          <Github className="h-4 w-4 mr-2" />
-                          Code
-                        </Button>
-                      </a>
+                      <div className="flex gap-2">
+                        {project.liveDemoUrl && (
+                          <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer">
+                            <Button size="sm">
+                              <ExternalLink className="h-4 w-4 mr-2" />
+                              Live Demo
+                            </Button>
+                          </a>
+                        )}
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Button variant="outline" size="sm">
+                            <Github className="h-4 w-4 mr-2" />
+                            Code
+                          </Button>
+                        </a>
+                      </div>
                     </div>
 
                   </div>
