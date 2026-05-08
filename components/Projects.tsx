@@ -34,6 +34,7 @@ const ProjectsSection = () => {
         "JPA / Hibernate",
         "MySQL"
       ],
+      liveDemoUrl: "https://task-production-c618.up.railway.app/login;jsessionid=FE109CA15DFB0094E63C991758442374",
       githubUrl: "https://github.com/saini-harsh15/Task-Manager",
     }
   ]
