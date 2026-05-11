@@ -1,51 +1,6 @@
-import { useState } from "react";
-import axios from "axios";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Github, Linkedin, TwitterIcon } from "lucide-react";
-import { toast } from "sonner";
+import { Mail, Phone, MapPin, Github, Linkedin, TwitterIcon, Check } from "lucide-react";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      const res = await axios.post("/api/contact", formData);
-
-      if (res.status === 200) {
-        toast.success("Message sent!", {
-          description: "Thank you for your message. I'll get back to you soon!",
-        });
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        toast.error("Failed to send message.", {
-          description: "Please try again later.",
-        });
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error("Something went wrong.", {
-        description: "Please try again later.",
-      });
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const contactInfo = [
     {
@@ -98,8 +53,8 @@ const ContactSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
+          {/* Contact Information (top block up to Location) */}
+          <div className="space-y-8 lg:self-stretch">
             <div>
               <h3 className="text-2xl font-semibold mb-6">Let&apos;s Connect</h3>
               <p className="text-muted-foreground mb-8 leading-relaxed">
@@ -126,92 +81,75 @@ const ContactSection = () => {
                 </a>
               ))}
             </div>
+          </div>
 
-            <div>
-              <h4 className="font-semibold mb-4">Follow Me</h4>
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-200"
-                    aria-label={social.label}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
+          {/* Profile Card (replacing Contact Form) */}
+          <div className="bg-card/95 rounded-xl p-6 shadow-lg border border-border/50">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-semibold">
+                Backend Developer building scalable Java & Spring Boot applications.
+              </h3>
+
+              <div className="space-y-2 text-muted-foreground">
+                <div className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-500 mt-1" />
+                  <span>REST API Development</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-500 mt-1" />
+                  <span>Spring Security & Authentication</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-500 mt-1" />
+                  <span>MySQL Database Design</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-500 mt-1" />
+                  <span>Deployment on Railway</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-500 mt-1" />
+                  <span>Debugging & Performance Optimization</span>
+                </div>
+              </div>
+
+              <div className="my-2 h-px bg-gradient-to-r from-transparent via-muted-foreground/20 to-transparent" />
+
+              <div>
+                <h4 className="font-semibold mb-2">Currently Open To:</h4>
+                <div className="space-y-2 text-muted-foreground">
+                  <div className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-purple-500 mt-1" />
+                    <span>Backend Development Roles</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-purple-500 mt-1" />
+                    <span>Internship Opportunities</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-purple-500 mt-1" />
+                    <span>Freelance Projects</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-card rounded-xl p-8 shadow-lg">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                  Subject
-                </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  required
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="What's this about?"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project or just say hello!"
-                  rows={5}
-                />
-              </div>
-
-              <Button type="submit" className="w-full">
-                Send Message
-              </Button>
-            </form>
+          {/* Social links row below, spanning both columns on large screens */}
+          <div className="mt-6 lg:col-span-2">
+            <h4 className="font-semibold mb-4">Follow Me</h4>
+            <div className="flex space-x-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-200"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
