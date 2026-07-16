@@ -1,97 +1,73 @@
-
 import { Code, Monitor, Database, Server, Wrench, Target } from 'lucide-react';
 
-const SkillsSection = () => {
-  const skillCategories = [
-    {
-      title: "Frontend Development",
-      icon: <Monitor className="h-8 w-8" />,
-      skills: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Bootstrap",
-        "Responsive Design"
-      ],
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "Backend Development",
-      icon: <Server className="h-8 w-8" />,
-      skills: [
-        "Java",
-        "Spring Boot",
-        "REST APIs",
-        "Spring Security (JWT)",
-        "JPA / Hibernate"
-      ],
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "Database",
-      icon: <Database className="h-8 w-8" />,
-      skills: [
-        "MySQL",
-        "SQL",
-        "Database Design",
-        "Normalization",
-        "Indexing"
-      ],
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "Core Focus",
-      icon: <Target className="h-8 w-8" />,
-      skills: ["Backend System Design",
-        "API Development",
-        "Database Optimization"],
-      color: "from-orange-500 to-red-500"
-    },
-    {
-      title: "DevOps & Tools",
-      icon: <Wrench className="h-8 w-8" />,
-      skills: ["AWS", "Docker", "Git", "Github Actions"],
-      color: "from-indigo-500 to-blue-500"
-    },
-    {
-      title: "Programming Languages",
-      icon: <Code className="h-8 w-8" />,
-      skills: [
-        "Java",
-        "SQL",
-        "JavaScript"
-      ],
-      color: "from-teal-500 to-green-500"
-    }
-  ];
+const skillCategories = [
+  {
+    title: 'Frontend Development',
+    icon: Monitor,
+    skills: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Responsive Design'],
+  },
+  {
+    title: 'Backend Development',
+    icon: Server,
+    skills: ['Java', 'Spring Boot', 'REST APIs', 'Spring Security (JWT)', 'JPA / Hibernate'],
+  },
+  {
+    title: 'Database',
+    icon: Database,
+    skills: ['MySQL', 'SQL', 'Database Design', 'Normalization', 'Indexing'],
+  },
+  {
+    title: 'Core Focus',
+    icon: Target,
+    skills: ['Backend System Design', 'API Development', 'Database Optimization'],
+  },
+  {
+    title: 'DevOps & Tools',
+    icon: Wrench,
+    skills: ['Docker', 'Git', 'Github Actions'],
+  },
+  {
+    title: 'Programming Languages',
+    icon: Code,
+    skills: ['Java', 'SQL', 'JavaScript'],
+  },
+];
 
+const SkillsSection = () => {
   return (
-    <section id="skills" className="py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+    <section id="skills" className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 -left-24 h-96 w-96 rounded-full bg-blue-400/20 dark:bg-blue-500/10 blur-3xl animate-blob [animation-delay:2s]" />
+        <div className="absolute -bottom-24 right-1/4 h-96 w-96 rounded-full bg-purple-400/20 dark:bg-purple-500/10 blur-3xl animate-blob [animation-delay:4s]" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16 animate-fade-in-up">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Skills & Expertise
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 rounded-full" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I&apos;m passionate about working with cutting-edge technologies and constantly expanding my skill set.
+            Core technologies I use to design, build, and optimize backend systems.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map(({ title, icon: Icon, skills }, index) => (
             <div
-              key={category.title}
-              className="bg-card rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              key={title}
+              className="group h-full animate-fade-in-up rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-lg p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-xl hover:border-blue-400/30"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className={`w-16 h-16 rounded-lg bg-gradient-to-r ${category.color} flex items-center justify-center text-white mb-4`}>
-                {category.icon}
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white mb-4 shadow-md transition-transform duration-300 group-hover:scale-110">
+                <Icon className="h-7 w-7" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-4">{title}</h3>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
+                {skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 bg-muted rounded-full text-sm text-muted-foreground hover:bg-muted/70 transition-colors"
+                    className="text-xs font-medium px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-400/20 transition-colors hover:bg-blue-500/20"
                   >
                     {skill}
                   </span>
