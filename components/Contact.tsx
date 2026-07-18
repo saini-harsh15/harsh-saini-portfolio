@@ -1,13 +1,21 @@
+"use client";
+
+import { FormEvent, useState } from "react";
 import {
   Mail,
   Phone,
   MapPin,
   Github,
   Linkedin,
-  Check,
+  CircleCheck,
+  Plus,
+  Send,
 } from "lucide-react";
 
 import { FaXTwitter } from "react-icons/fa6";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const contactInfo = [
   {
@@ -47,21 +55,55 @@ const socialLinks = [
   },
 ];
 
-const capabilities = [
-  "REST API Development",
-  "Spring Security & Authentication",
-  "MySQL Database Design",
-  "Deployment on Railway",
-  "Debugging & Performance Optimization",
-];
-
-const openTo = [
-  "Backend Development Roles",
-  "Fresher / Full-time Opportunities",
-  "Freelance Projects",
-];
-
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    query: "",
+  });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+  const [sentName, setSentName] = useState("");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("sending");
+    setStatusMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result?.message || "Unable to send your message.");
+      }
+
+      setSentName(formData.name.trim());
+      setFormData({ name: "", email: "", query: "" });
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+      setStatusMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    }
+  };
+
+  const resetContactForm = () => {
+    setStatus("idle");
+    setStatusMessage("");
+    setSentName("");
+  };
+
   return (
     <section
       id="contact"
@@ -138,44 +180,123 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Profile Card */}
+          {/* Contact Form */}
         <div className="animate-fade-in-up [animation-delay:200ms] rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-emerald-400/30">
-            <h3 className="text-xl font-semibold mb-4 text-foreground leading-snug">
-              Backend Developer building scalable Java & Spring Boot
-              applications.
+            <h3 className="text-xl font-semibold mb-2 text-foreground leading-snug">
+              Send a Message
             </h3>
 
-            <div className="space-y-2">
-              {capabilities.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-2 text-sm text-muted-foreground"
-                >
-          <Check className="h-4 w-4 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                  <span>{item}</span>
+            <p className="text-sm text-muted-foreground mb-6">
+              Share your details and query. Your message will be sent directly
+              to harshsaini2462@gmail.com.
+            </p>
+
+            {status === "success" ? (
+              <div
+                className="flex min-h-[430px] flex-col items-center justify-center py-8 text-center"
+                role="status"
+                aria-live="polite"
+              >
+                <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 shadow-sm ring-1 ring-emerald-500/20 dark:text-emerald-400">
+                  <CircleCheck className="h-9 w-9" aria-hidden="true" />
                 </div>
-              ))}
-            </div>
 
-            <div className="my-5 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                <h4 className="text-2xl font-semibold text-foreground">
+                  Message sent
+                </h4>
 
-            <div>
-              <h4 className="font-semibold text-sm text-foreground mb-3">
-                Currently Open To
-              </h4>
+                <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">
+                  Thanks{sentName ? `, ${sentName}` : ""}. Your query has been
+                  sent to Harsh, and you will hear back soon.
+                </p>
+
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={resetContactForm}
+                  className="mt-7 h-11 border-emerald-500/30 bg-emerald-500/5 text-emerald-700 hover:bg-emerald-500/10 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
+                >
+                  <Plus className="h-4 w-4" />
+                  Send another message
+                </Button>
+              </div>
+            ) : (
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <div className="space-y-2">
+                <label htmlFor="contact-name" className="text-sm font-medium text-foreground">
+                  Name
+                </label>
+                <Input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={(event) =>
+                    setFormData((current) => ({ ...current, name: event.target.value }))
+                  }
+                  placeholder="Your name"
+                  autoComplete="name"
+                  required
+                  className="h-11 border-white/20 bg-white/30 dark:bg-white/5"
+                />
+              </div>
 
               <div className="space-y-2">
-                {openTo.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-2 text-sm text-muted-foreground"
-                  >
-          <Check className="h-4 w-4 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    <span>{item}</span>
-                  </div>
-                ))}
+                <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+                  Email
+                </label>
+                <Input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(event) =>
+                    setFormData((current) => ({ ...current, email: event.target.value }))
+                  }
+                  placeholder="your.email@example.com"
+                  autoComplete="email"
+                  required
+                  className="h-11 border-white/20 bg-white/30 dark:bg-white/5"
+                />
               </div>
-            </div>
+
+              <div className="space-y-2">
+                <label htmlFor="contact-query" className="text-sm font-medium text-foreground">
+                  Query
+                </label>
+                <Textarea
+                  id="contact-query"
+                  name="query"
+                  value={formData.query}
+                  onChange={(event) =>
+                    setFormData((current) => ({ ...current, query: event.target.value }))
+                  }
+                  placeholder="Tell me what you want to discuss"
+                  required
+                  rows={5}
+                  className="min-h-32 resize-none border-white/20 bg-white/30 dark:bg-white/5"
+                />
+              </div>
+
+              {status === "error" && statusMessage && (
+                <p
+                  className="text-sm text-red-600 dark:text-red-400"
+                  role="alert"
+                >
+                  {statusMessage}
+                </p>
+              )}
+
+              <Button
+                type="submit"
+                disabled={status === "sending"}
+                className="w-full h-11 bg-gradient-to-r from-amber-500 to-emerald-600 text-white hover:from-amber-600 hover:to-emerald-700"
+              >
+                <Send className="h-4 w-4" />
+                {status === "sending" ? "Sending..." : "Send Query"}
+              </Button>
+            </form>
+            )}
           </div>
 
           {/* Social Links */}
