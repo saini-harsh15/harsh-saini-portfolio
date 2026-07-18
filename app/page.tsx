@@ -61,10 +61,10 @@ export default function Home() {
   return (
       <div className="min-h-screen bg-background text-foreground">
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-blue-50/80 dark:bg-blue-950/70 backdrop-blur-md border-b border-white/10">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-50/80 dark:bg-zinc-950/70 backdrop-blur-md border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
-              <div className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <div className="font-bold text-xl bg-gradient-to-r from-amber-500 to-emerald-500 bg-clip-text text-transparent">
                 Harsh Saini
               </div>
 
@@ -77,13 +77,13 @@ export default function Home() {
                           onClick={() => scrollToSection(item.id)}
                           className={`relative py-1 font-medium transition-colors duration-200 ${
                               isActive
-                                  ? "bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                                  ? "bg-gradient-to-r from-amber-500 to-emerald-500 bg-clip-text text-transparent"
                                   : "text-muted-foreground hover:text-foreground"
                           }`}
                       >
                         {item.label}
                         {isActive && (
-                            <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600" />
+                            <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-amber-500 to-emerald-500" />
                         )}
                       </button>
                   );
@@ -115,7 +115,7 @@ export default function Home() {
           </div>
 
           {isMenuOpen && (
-              <div className="md:hidden bg-blue-50/95 dark:bg-blue-950/90 backdrop-blur-md border-t border-white/10 animate-fade-in">
+              <div className="md:hidden bg-zinc-50/95 dark:bg-zinc-950/90 backdrop-blur-md border-t border-white/10 animate-fade-in">
                 <div className="px-2 pt-2 pb-3 space-y-1">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.id;
@@ -125,7 +125,7 @@ export default function Home() {
                             onClick={() => scrollToSection(item.id)}
                             className={`block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200 ${
                                 isActive
-                                    ? "bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                                    ? "bg-gradient-to-r from-amber-500 to-emerald-500 bg-clip-text text-transparent"
                                     : "text-muted-foreground hover:text-foreground"
                             }`}
                         >
@@ -147,7 +147,7 @@ export default function Home() {
           <Contact />
         </main>
 
-        <footer className="py-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 border-t border-white/10">
+        <footer className="py-8 bg-gradient-to-br from-zinc-100 to-stone-100 dark:from-zinc-950 dark:to-stone-900 border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-muted-foreground">© Harsh Saini.</p>
           </div>

@@ -37,22 +37,22 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950"
+      className="relative py-20 overflow-hidden bg-gradient-to-br from-zinc-100 to-stone-100 dark:from-zinc-950 dark:to-stone-900"
     >
       {/* Background Blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 -left-24 h-96 w-96 rounded-full bg-purple-400/20 dark:bg-purple-500/10 blur-3xl animate-blob" />
-        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-blue-400/20 dark:bg-blue-500/10 blur-3xl animate-blob [animation-delay:3s]" />
+        <div className="absolute top-0 -left-24 h-96 w-96 rounded-full bg-amber-500/10 dark:bg-amber-500/10 blur-3xl animate-blob" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-emerald-500/10 dark:bg-emerald-500/10 blur-3xl animate-blob [animation-delay:3s]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-amber-500 to-emerald-500 bg-clip-text text-transparent">
             About Me
           </h2>
 
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-emerald-500 mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[30%_70%] gap-10 lg:gap-12 items-start">
@@ -69,7 +69,7 @@ const AboutSection = () => {
 
               <div className="p-6 flex flex-col items-center text-center">
                 <div className="relative mb-5">
-                  <div className="w-28 h-28 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-3xl font-bold shadow-lg ring-4 ring-white/20">
+                  <div className="w-28 h-28 rounded-full bg-gradient-to-br from-amber-500 to-emerald-600 flex items-center justify-center text-white text-3xl font-bold shadow-lg ring-4 ring-white/20">
                     HS
                   </div>
 
@@ -96,9 +96,9 @@ const AboutSection = () => {
                           : undefined
                       }
                       aria-label={label}
-                      className="group flex items-center justify-center h-10 w-10 rounded-full border border-white/20 bg-white/10 dark:bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-blue-400/30"
+                      className="group flex items-center justify-center h-10 w-10 rounded-full border border-white/20 bg-white/10 dark:bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-emerald-400/30"
                     >
-                      <Icon className="h-4 w-4 text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:scale-110" />
+                      <Icon className="h-4 w-4 text-emerald-600 dark:text-emerald-400 transition-transform duration-300 group-hover:scale-110" />
                     </a>
                   ))}
                 </div>
@@ -132,9 +132,9 @@ const AboutSection = () => {
               {highlights.map(({ icon: Icon, title, detail }) => (
                 <div
                   key={title}
-                  className="group rounded-xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-md p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-blue-400/30"
+                  className="group rounded-xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-md p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-emerald-400/30"
                 >
-                  <Icon className="h-5 w-5 mb-2 text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:scale-110" />
+                  <Icon className="h-5 w-5 mb-2 text-emerald-600 dark:text-emerald-400 transition-transform duration-300 group-hover:scale-110" />
 
                   <h4 className="font-semibold text-sm text-foreground mb-1">
                     {title}

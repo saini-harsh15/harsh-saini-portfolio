@@ -68,7 +68,7 @@ const TechPills = ({ technologies }: { technologies: string[] }) => (
     {technologies.map((tech) => (
       <span
         key={tech}
-        className="text-xs font-medium px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-400/20"
+        className="text-xs font-medium px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-400/20"
       >
         {tech}
       </span>
@@ -78,25 +78,25 @@ const TechPills = ({ technologies }: { technologies: string[] }) => (
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="relative py-20 overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-950 dark:to-blue-950">
+    <section id="projects" className="relative py-20 overflow-hidden bg-gradient-to-br from-zinc-100 to-stone-100 dark:from-zinc-950 dark:to-stone-900">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 left-1/3 h-96 w-96 rounded-full bg-purple-400/20 dark:bg-purple-500/10 blur-3xl animate-blob [animation-delay:1.5s]" />
-        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-blue-400/20 dark:bg-blue-500/10 blur-3xl animate-blob [animation-delay:3.5s]" />
+        <div className="absolute -top-24 left-1/3 h-96 w-96 rounded-full bg-amber-500/10 dark:bg-amber-500/10 blur-3xl animate-blob [animation-delay:1.5s]" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-emerald-500/10 dark:bg-emerald-500/10 blur-3xl animate-blob [animation-delay:3.5s]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-amber-500 to-emerald-500 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-emerald-500 mx-auto mb-6 rounded-full" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Recent projects showcasing my backend expertise and full-stack capabilities.
           </p>
         </div>
 
         {/* Featured project */}
-        <div className="animate-fade-in-up [animation-delay:100ms] mb-12 rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-blue-400/30">
+        <div className="animate-fade-in-up [animation-delay:100ms] mb-12 rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-emerald-400/30">
           <div className="grid lg:grid-cols-2">
             <div className="bg-white/95 dark:bg-white/90 p-6 flex items-center justify-center">
               <Image
@@ -109,7 +109,7 @@ const ProjectsSection = () => {
             </div>
 
             <div className="p-8 flex flex-col">
-              <span className="inline-flex w-fit mb-4 px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold">
+              <span className="inline-flex w-fit mb-4 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-emerald-500 text-white text-sm font-semibold">
                 Featured Project
               </span>
 
@@ -157,7 +157,7 @@ const ProjectsSection = () => {
           {otherProjects.map((project, index) => (
             <div
               key={project.title}
-              className="animate-fade-in-up rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-lg overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-blue-400/30"
+              className="animate-fade-in-up rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-lg overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-emerald-400/30"
               style={{ animationDelay: `${200 + index * 100}ms` }}
             >
               <div className="bg-white/95 dark:bg-white/90 p-4">

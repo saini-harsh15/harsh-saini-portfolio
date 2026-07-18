@@ -65,22 +65,22 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950"
+      className="relative py-20 overflow-hidden bg-gradient-to-br from-zinc-100 to-stone-100 dark:from-zinc-950 dark:to-stone-900"
     >
       {/* Background blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-purple-400/20 dark:bg-purple-500/10 blur-3xl animate-blob [animation-delay:2.5s]" />
-        <div className="absolute -bottom-24 left-1/4 h-96 w-96 rounded-full bg-blue-400/20 dark:bg-blue-500/10 blur-3xl animate-blob [animation-delay:0.5s]" />
+        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-amber-500/10 dark:bg-amber-500/10 blur-3xl animate-blob [animation-delay:2.5s]" />
+        <div className="absolute -bottom-24 left-1/4 h-96 w-96 rounded-full bg-emerald-500/10 dark:bg-emerald-500/10 blur-3xl animate-blob [animation-delay:0.5s]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-amber-500 to-emerald-500 bg-clip-text text-transparent">
             Get In Touch
           </h2>
 
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 rounded-full" />
+        <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-emerald-500 mx-auto mb-6 rounded-full" />
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             I'm always open to discussing new opportunities, backend-focused
@@ -119,9 +119,9 @@ const ContactSection = () => {
                         }
                         : {}
                     )}
-                    className="group flex items-center gap-4 p-4 rounded-xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-blue-400/30"
+                className="group flex items-center gap-4 p-4 rounded-xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-emerald-400/30"
                   >
-                    <div className="w-12 h-12 shrink-0 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+              <div className="w-12 h-12 shrink-0 rounded-lg bg-gradient-to-br from-amber-500 to-emerald-600 flex items-center justify-center text-white shadow-md transition-transform duration-300 group-hover:scale-110">
                       <Icon className="h-5 w-5" />
                     </div>
 
@@ -139,7 +139,7 @@ const ContactSection = () => {
           </div>
 
           {/* Profile Card */}
-          <div className="animate-fade-in-up [animation-delay:200ms] rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-blue-400/30">
+        <div className="animate-fade-in-up [animation-delay:200ms] rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-emerald-400/30">
             <h3 className="text-xl font-semibold mb-4 text-foreground leading-snug">
               Backend Developer building scalable Java & Spring Boot
               applications.
@@ -151,7 +151,7 @@ const ContactSection = () => {
                   key={item}
                   className="flex items-start gap-2 text-sm text-muted-foreground"
                 >
-                  <Check className="h-4 w-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-400" />
+          <Check className="h-4 w-4 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -170,7 +170,7 @@ const ContactSection = () => {
                     key={item}
                     className="flex items-start gap-2 text-sm text-muted-foreground"
                   >
-                    <Check className="h-4 w-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-400" />
+          <Check className="h-4 w-4 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -192,7 +192,7 @@ const ContactSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="group w-11 h-11 rounded-lg border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-md flex items-center justify-center text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-blue-400/30 hover:text-blue-600 dark:hover:text-blue-400"
+                className="group w-11 h-11 rounded-lg border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-md flex items-center justify-center text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-emerald-400/30 hover:text-emerald-600 dark:hover:text-emerald-400"
                 >
                   <Icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                 </a>
