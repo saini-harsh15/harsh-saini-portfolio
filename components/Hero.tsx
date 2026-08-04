@@ -34,7 +34,7 @@ const projects = [
     description: 'Production-ready QR code generator with customizable QR creation, PNG/SVG export, logo embedding, and responsive UI built using Java, Spring Boot, Thymeleaf, and ZXing.',
     images: ['/projects/Quirk1.png',
              '/projects/Quirk2.png',],
-    tech: ['Java', 'Spring Boot', 'Thymeleaf', 'ZXing'],
+    tech: ['Spring Boot', 'Thymeleaf', 'ZXing'],
   },
 ];
 
