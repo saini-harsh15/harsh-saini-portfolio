@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown, Code2, Briefcase, Layers } from 'lucide-react';
 
 const stats = [
-  { icon: Code2, value: '270+', label: 'LeetCode Problems' },
+  { icon: Code2, value: '300+', label: 'LeetCode Problems' },
   { icon: Briefcase, value: 'Backend', label: 'Developer' },
   { icon: Layers, value: '3', label: 'Major Projects' },
 ];
