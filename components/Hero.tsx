@@ -30,10 +30,11 @@ const projects = [
     tech: ['Java', 'BERT', 'FAISS', 'Spring Boot', 'MySQL'],
   },
   {
-    title: 'Task Manager',
-    description: 'REST API-driven task management app with JWT authentication and role-based access control.',
-    images: ['/projects/TaskManager.png'],
-    tech: ['Java', 'Spring Security', 'REST APIs', 'MySQL'],
+    title: 'Quirk - A QR Code Generator',
+    description: 'Production-ready QR code generator with customizable QR creation, PNG/SVG export, logo embedding, and responsive UI built using Java, Spring Boot, Thymeleaf, and ZXing.',
+    images: ['/projects/Quirk1.png',
+             '/projects/Quirk2.png',],
+    tech: ['Java', 'Spring Boot', 'Thymeleaf', 'ZXing'],
   },
 ];
 
