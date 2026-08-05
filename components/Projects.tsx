@@ -47,7 +47,7 @@ const otherProjects: Project[] = [
       "MySQL",
       "AI Matching Logic",
     ],
-    liveDemoUrl: "https://startupeco-production.up.railway.app/",
+    liveDemoUrl: "http://startupecosystem.duckdns.org/",
     githubUrl: "https://github.com/saini-harsh15/Startup",
   },
   {
@@ -56,7 +56,6 @@ const otherProjects: Project[] = [
         "A backend-driven task management system built using Java and Spring Boot that allows users to create, update, and manage tasks efficiently. The application includes secure authentication, RESTful APIs, and structured database design to ensure reliable task handling and data consistency.",
     image: "/Task.png",
     technologies: ["Java", "Spring Boot", "REST APIs", "Spring Security", "JPA / Hibernate", "MySQL"],
-    liveDemoUrl: "https://task-production-c618.up.railway.app/login",
     githubUrl: "https://github.com/saini-harsh15/Task-Manager",
   },
 ];
@@ -162,7 +161,7 @@ const ProjectCard = ({ project, delay }: { project: Project; delay: number }) =>
         </div>
 
         <div className="mt-auto">
-          <ProjectLinks githubUrl={project.githubUrl} />
+          <ProjectLinks githubUrl={project.githubUrl} liveDemoUrl={project.liveDemoUrl} />
         </div>
       </div>
     </div>
