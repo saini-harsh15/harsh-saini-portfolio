@@ -18,7 +18,7 @@ const featuredProjects: Project[] = [
         "A full-stack hotel reservation and management platform built with Java Spring Boot and React. It features role-based authentication (Customer, Hotel Admin, Super Admin), hotel approval workflows, room management, online booking, reviews, analytics dashboards, and a modern responsive UI designed for real-world hotel operations.",
     image: "/Hotel.png",
     technologies: ["Java", "Spring Boot", "React", "REST APIs", "Hibernate / JPA", "MySQL"],
-    liveDemoUrl: "https://hotelmanage-six.vercel.app/",
+    liveDemoUrl: "https://hotelmanagement1-gamma.vercel.app/",
     githubUrl: "https://github.com/saini-harsh15/Hotel-Management",
   },
   {
